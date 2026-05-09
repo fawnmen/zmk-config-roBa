@@ -3,29 +3,29 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-// --- JIS配列用エイリアス (エラー回避のため標準キーコードを使用) ---
-#define JP_DQUOTE     LS(N2)            // "
-#define JP_AMPERSAND  LS(N6)            // &
-#define JP_QUOTE      LS(N7)            // '
-#define JP_LPAREN     LS(N8)            // (
-#define JP_RPAREN     LS(N9)            // )
-#define JP_EQUAL      LS(MINUS)         // =
-#define JP_CARET      EQUAL             // ^
-#define JP_TILDE      LS(EQUAL)         // ~
-#define JP_AT         LBKT              // @
-#define JP_LBRACKET   RBKT              // [
-#define JP_RBRACKET   NONUS_HASH        // ]
-#define JP_LBRACE     LS(RBKT)          // {
-#define JP_RBRACE     LS(NONUS_HASH)    // }
-#define JP_COLON      SINGLE_QUOTE      // :
-#define JP_ASTERISK   LS(SINGLE_QUOTE)  // *
-#define JP_SEMICOLON  SEMICOLON         // ;
-#define JP_PLUS       LS(SEMICOLON)     // +
-#define JP_UNDERSCORE LS(INT_RO)        // _
-#define JP_YEN        INT_YEN           // ¥
-#define JP_PIPE       LS(INT_YEN)       // |
-#define JP_BACKQUOTE  LS(LBKT)          // `
-#define JP_HANZEN     GRAVE             // 半角/全角
+// --- JIS配列用定義 (シンプルに再定義) ---
+#define J_DQ   LS(N2)            // "
+#define J_AM   LS(N6)            // &
+#define J_SQ   LS(N7)            // '
+#define J_LP   LS(N8)            // (
+#define J_RP   LS(N9)            // )
+#define J_EQ   LS(MINUS)         // =
+#define J_CA   EQUAL             // ^
+#define J_TI   LS(EQUAL)         // ~
+#define J_AT   LBKT              // @
+#define J_LB   RBKT              // [
+#define J_RB   NONUS_HASH        // ]
+#define J_LC   LS(RBKT)          // {
+#define J_RC   LS(NONUS_HASH)    // }
+#define J_CO   SINGLE_QUOTE      // :
+#define J_AS   LS(SINGLE_QUOTE)  // *
+#define J_SC   SEMICOLON         // ;
+#define J_PL   LS(SEMICOLON)     // +
+#define J_UN   LS(INT_RO)        // _
+#define J_YE   INT_YEN           // ¥
+#define J_PI   LS(INT_YEN)       // |
+#define J_BQ   LS(LBKT)          // `
+#define J_HZ   GRAVE             // 半角/全角
 
 #define MOUSE 4
 #define SCROLL 5
@@ -50,7 +50,7 @@
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            bindings = <&to 0>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
         };
 
@@ -64,7 +64,7 @@
         parenthesis: parenthesis {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp JP_LPAREN>, <&kp JP_RPAREN>, <&kp LEFT>;
+            bindings = <&kp J_LP>, <&kp J_RP>, <&kp LEFT>;
             label = "parenthesis";
         };
     };
@@ -84,27 +84,27 @@
         default_layer {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R             &kp T                                               &kp Y        &kp U  &lt 5 I    &kp O    &lt 5 P
-&kp A             &kp S         &kp D         &kp F             &kp G        &kp ESCAPE              &kp JP_EQUAL   &kp H        &kp J  &kp K      &kp L    &kp MINUS
+&kp A             &kp S         &kp D         &kp F             &kp G        &kp ESCAPE              &kp J_EQ       &kp H        &kp J  &kp K      &kp L    &kp MINUS
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V             &kp B        &kp TAB                 &parenthesis   &kp N        &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 6 JP_HANZEN   &lt 2 SPACE  &lt 3 INT_HENK          &kp BACKSPACE  &lt 1 ENTER                             &kp DEL
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 6 J_HZ        &lt 2 SPACE  &lt 3 INT_HENK          &kp BACKSPACE  &lt 1 ENTER                             &kp DEL
             >;
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Sym_Num {
+        SYM {
             bindings = <
-&kp EXCLAMATION  &kp JP_DQUOTE    &kp HASH     &kp DOLLAR    &kp PERCENT                         &kp JP_AMPERSAND  &kp JP_QUOTE     &kp JP_EQUAL    &kp JP_CARET     &kp JP_YEN
-&kp N1           &kp N2           &kp N3       &kp N4        &kp N5          &trans      &trans  &kp JP_PLUS       &kp JP_TILDE     &kp JP_PIPE     &kp JP_AT        &kp JP_COLON
-&kp N6           &kp N7           &kp N8       &kp N9        &kp N0          &trans      &trans  &none             &kp JP_ASTERISK  &kp JP_BACKQUOTE &kp JP_UNDERSCORE &kp SEMICOLON
-&trans           &trans           &trans       &trans        &trans          &trans      &trans  &trans                                                               &trans
+&kp EXCLAMATION  &kp J_DQ         &kp HASH     &kp DOLLAR    &kp PERCENT                         &kp J_AM          &kp J_SQ         &kp J_EQ        &kp J_CA        &kp J_YE
+&kp N1           &kp N2           &kp N3       &kp N4        &kp N5          &trans      &trans  &kp J_PL          &kp J_TI         &kp J_PI        &kp J_AT        &kp J_CO
+&kp N6           &kp N7           &kp N8       &kp N9        &kp N0          &trans      &trans  &none             &kp J_AS          &kp J_BQ        &kp J_UN        &kp J_SC
+&trans           &trans           &trans       &trans        &trans          &trans      &trans  &trans                                                              &trans
             >;
         };
 
-        NUM_LAYER {
+        NUM_L {
             bindings = <
-&kp MINUS            &kp KP_N7    &kp KP_N8    &kp KP_N9    &kp JP_PLUS                                &trans    &kp F7  &kp F8  &kp F9  &kp F10
-&kp SLASH            &kp KP_N4    &kp KP_N5    &kp KP_N6    &kp JP_ASTERISK  &kp LC(LA(KP_N0)) &trans  &trans    &kp F4  &kp F5  &kp F6  &kp F11
-&mt LEFT_SHIFT KP_N0 &kp KP_N1    &kp KP_N2    &kp KP_N3    &kp PERIOD       &kp JP_EQUAL      &trans  &kp ESC   &kp F1  &kp F2  &kp F3  &kp F12
+&kp MINUS            &kp KP_N7    &kp KP_N8    &kp KP_N9    &kp J_PL                                   &trans    &kp F7  &kp F8  &kp F9  &kp F10
+&kp SLASH            &kp KP_N4    &kp KP_N5    &kp KP_N6    &kp J_AS         &kp LC(LA(KP_N0)) &trans  &trans    &kp F4  &kp F5  &kp F6  &kp F11
+&mt LEFT_SHIFT KP_N0 &kp KP_N1    &kp KP_N2    &kp KP_N3    &kp PERIOD       &kp J_EQ          &trans  &kp ESC   &kp F1  &kp F2  &kp F3  &kp F12
 &trans               &trans       &trans       &trans       &trans           &trans            &trans  &trans                                    &kp F13
             >;
         };
@@ -124,7 +124,7 @@
 &to_layer_0 Q  &to_layer_0 W  &to_layer_0 E  &to_layer_0 R     &to_layer_0 T                                     &to_layer_0 Y    &to_layer_0 U    &kp LC(T)        &to_layer_0 O    &mo 5
 &to_layer_0 A  &to_layer_0 S  &to_layer_0 D  &to_layer_0 F     &to_layer_0 G  &trans                  &kp LC(V)  &kp LC(LS(TAB))  &mkp_exit_AML MB1 &mkp_exit_AML MB3 &mkp_exit_AML MB2 &kp LC(TAB)
 &to_layer_0 Z  &to_layer_0 X  &to_layer_0 C  &to_layer_0 V     &to_layer_0 B  &trans                  &kp LC(C)  &to_layer_0 N    &mkp MB4         &kp LC(W)        &mkp MB5         &trans
-&trans         &trans         &trans         &to_layer_0 JP_HANZEN &trans     &to_layer_0 INT_HENK    &trans     &trans                                                               &trans
+&trans         &trans         &trans         &to_layer_0 J_HZ  &trans         &to_layer_0 INT_HENK    &trans     &trans                                                               &trans
             >;
         };
 
@@ -137,7 +137,7 @@
             >;
         };
 
-        LAYER_6 {
+        L6 {
             bindings = <
 &trans  &trans       &trans       &trans       &trans                       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
 &trans  &trans       &trans       &trans       &trans  &trans      &trans   &trans       &trans       &trans       &trans       &trans
