@@ -12,7 +12,7 @@
 #define JP_DQUOTE       AT                // "
 #define JP_AMPERSAND    CARET             // &
 #define JP_QUOTE        AMPERSAND         // '
-#define JP_EQUAL        LS(0x1E)          // =
+#define JP_EQUAL        LS(N1)            // =
 #define JP_CARET        EQUAL             // ^
 #define JP_YEN          0x89              // ¥
 #define JP_PLUS         COLON             // +
