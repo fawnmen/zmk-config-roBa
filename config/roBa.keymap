@@ -12,7 +12,7 @@
 #define JP_DQUOTE       AT                // "
 #define JP_AMPERSAND    CARET             // &
 #define JP_QUOTE        AMPERSAND         // '
-#define JP_EQUAL        UNDER             // =
+#define JP_EQUAL        LS(0x1E)          // =
 #define JP_CARET        EQUAL             // ^
 #define JP_YEN          0x89              // ¥
 #define JP_PLUS         COLON             // +
@@ -134,7 +134,7 @@
 
         SYMBOLS {
             bindings = <
-&kp ESCAPE        &kp JP_AMPERSAND &kp JP_ASTERISK &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                      &kp JP_LPAREN        &kp JP_RPAREN        &kp UNDERSCORE  &trans         &trans
+&kp ESCAPE        &kp JP_AMPERSAND &kp JP_ASTERISK &kp JP_LPAREN         &kp JP_RPAREN                      &kp JP_LPAREN        &kp JP_RPAREN        &kp UNDERSCORE  &trans         &trans
 &kp TILDE         &kp DOLLAR       &kp PERCENT     &kp JP_CARET          &trans                 &trans      &trans  &kp JP_LBRACE        &kp JP_RBRACE        &kp SEMICOLON   &kp JP_QUOTE   &kp JP_BSLH
 &kp JP_BACKQUOTE  &kp EXCLAMATION  &kp LBKT       &kp HASH              &trans                 &trans      &trans  &kp JP_LBRACKET      &kp JP_RBRACKET      &kp JP_COLON    &kp JP_DQUOTE  &kp JP_PIPE
 &trans            &trans           &trans          &trans                &trans                 &trans      &trans  &trans                                                                  &trans
