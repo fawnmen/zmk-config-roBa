@@ -19,7 +19,7 @@
 #define JP_TILDE        PLUS              // ~
 #define JP_PIPE         LS(0x89)          // |
 #define JP_BSLH         0x87              // \
-#define JP_AT           0x2F              // @
+#define JP_AT           0x2f              // @
 #define JP_COLON        SINGLE_QUOTE      // :
 #define JP_ASTERISK     DOUBLE_QUOTES     // *
 #define JP_BACKQUOTE    LEFT_BRACE        // `
@@ -136,7 +136,7 @@
             bindings = <
 &kp ESCAPE        &kp JP_AMPERSAND &kp JP_ASTERISK &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                      &kp JP_LPAREN        &kp JP_RPAREN        &kp UNDERSCORE  &trans         &trans
 &kp TILDE         &kp DOLLAR       &kp PERCENT     &kp JP_CARET          &trans                 &trans      &trans  &kp JP_LBRACE        &kp JP_RBRACE        &kp SEMICOLON   &kp JP_QUOTE   &kp JP_BSLH
-&kp JP_BACKQUOTE  &kp EXCLAMATION  &kp JP_AT       &kp HASH              &trans                 &trans      &trans  &kp JP_LBRACKET      &kp JP_RBRACKET      &kp JP_COLON    &kp JP_DQUOTE  &kp JP_PIPE
+&kp JP_BACKQUOTE  &kp EXCLAMATION  &kp LBKT       &kp HASH              &trans                 &trans      &trans  &kp JP_LBRACKET      &kp JP_RBRACKET      &kp JP_COLON    &kp JP_DQUOTE  &kp JP_PIPE
 &trans            &trans           &trans          &trans                &trans                 &trans      &trans  &trans                                                                  &trans
             >;
         };
